@@ -1,6 +1,6 @@
 # Kubernetes commands both imperative and declarative way
 
-## ---------- Pods ------------
+## ---------- PODS ------------
 
 1. creating a pod imperative way
     k run nginx --image=nginx
@@ -20,6 +20,22 @@
     spec:
     containers:
         - name: nginx
-        image: nginx
+          image: nginx
+          ports:
+            - containerPort: 80
 
-## ---------- scheduling ------------
+2. creating a pod at specific node01
+    apiVersion: v1
+    kind: Pod
+    metadata:
+    name: mypod
+    spec:
+    containers:
+      - name: nginx
+        image: nginx
+        ports:
+          - containerPort: 80
+    nodeName: node01
+      
+
+## ---------- SCHEDULING ------------
