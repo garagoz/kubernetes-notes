@@ -1,17 +1,25 @@
 # Kubernetes commands both imperative and declarative way
 
-## Pods
+## ---------- Pods ------------
 
-#### creating a pod imperative way
-k run nginx --image=nginx
+1. creating a pod imperative way
+    k run nginx --image=nginx
 
-#### creating with maifest file -> nginx.yaml
-'apiVersion: v1
-kind: Pod
-metadata:
-  name: mypod
-spec:
-  containers:
-    - name: nginx
-      image: nginx'
+2. creating a pod at specific namespace
+    k run nginx --image=nginx -n=dev
 
+3. accessing pod's service with port-forward
+    k port-forward pod nginx 8888:80
+    then you access it with browser http://127.0.0.1:8888
+
+2. creating with manifest file -> nginx.yaml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+    name: mypod
+    spec:
+    containers:
+        - name: nginx
+        image: nginx
+
+## ---------- scheduling ------------
