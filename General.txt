@@ -1,0 +1,4 @@
+# Other kubernetes commands
+
+## Taint and tolerations
+kubectl taints node node-name key:value:tain-effect
