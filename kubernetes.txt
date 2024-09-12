@@ -1,2 +1,0 @@
-# create pod 
-k run nginx --image=nginx
