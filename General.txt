@@ -1,6 +1,6 @@
 # Other kubernetes commands
 
-### Taint and tolerations
+### ------------ Taint and tolerations -----------------------------
 tain a node so that node can only accepted tolerated pod
 tolerate a pod so that pod can run on tainted node
 
@@ -12,18 +12,31 @@ example -> kubectl taint node node1 app:blue:NoSchedule
     kind: Pod
     metadata:
       name: mypod
-      labels:
-        tier: front-end
-      annotaions:
-        developer: Arslan Torayev
-        build: v2
     spec:
     containers:
       - name: nginx
         image: nginx
     tolerations:
-     - key: "app"
-       operator: "Equal"
-       value: "blue"
-       effect: "NoSchedule" -> all value must be in quotes
+     - key: app
+       operator: Equal
+       value: blue
+       effect: NoSchedule
+
+### ------------ Node selector -----------------------------
+why use nodeSelector, sometimes we want assign pod to specific labeled pod
+kubectl label node node-name key:value
+
+And pod     
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: mypod
+    spec:
+    containers:
+      - name: nginx
+        image: nginx
+    nodeSelector:
+      size: Large
+
+
     
