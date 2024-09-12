@@ -1,4 +1,5 @@
 # Kubernetes notes
 ### Pods
-### Scheduling
-### Namespaces
+### Services
+### Deployments
+### General
