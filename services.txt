@@ -1,4 +1,9 @@
-
+# SERVICES both imperative and declarative way
       
+1. Creating Services, Service types ClusterIP, NodePort, LoadBalancer      
 
-## ---------- SCHEDULING ------------
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: my-service
+    spec:

@@ -13,14 +13,14 @@ example -> kubectl taint node node1 app:blue:NoSchedule
     metadata:
       name: mypod
     spec:
-    containers:
+      containers:
       - name: nginx
         image: nginx
-    tolerations:
-     - key: app
-       operator: Equal
-       value: blue
-       effect: NoSchedule
+      tolerations:
+        - key: app
+          operator: Equal
+          value: blue
+          effect: NoSchedule
 
 ### ------------ Node selector -----------------------------
 why use nodeSelector, sometimes we want assign pod to specific labeled pod
@@ -32,11 +32,11 @@ And pod
     metadata:
       name: mypod
     spec:
-    containers:
+      containers:
       - name: nginx
         image: nginx
-    nodeSelector:
-      size: Large
+      nodeSelector:
+        ize: Large
 
 
     
