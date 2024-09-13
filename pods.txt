@@ -10,6 +10,8 @@
 3. getting Pod
     k get pods
     k get pods --selector app=App1 # with labels
+    k describe pod node-name
+    k get pod pod-name -o wide
 
 4. accessing pod's service with port-forward
     k port-forward pod nginx 8888:80
@@ -28,7 +30,7 @@
           ports:
             - containerPort: 80
 
-6. creating a pod at specific node01
+6. creating a pod at dedicated node01
 
     apiVersion: v1
     kind: Pod
