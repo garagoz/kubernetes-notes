@@ -1,6 +1,7 @@
-# Other kubernetes commands
+# -------- SCHEDULING ---------
 
 ### ------------ Taint and tolerations -----------------------------
+
 tain a node so that node can only accepted tolerated pod
 tolerate a pod so that pod can run on tainted node
 
@@ -23,6 +24,7 @@ example -> kubectl taint node node1 app:blue:NoSchedule
           effect: NoSchedule
 
 ### ------------ Node selector -----------------------------
+
 why use nodeSelector, sometimes we want assign pod to specific labeled pod
 kubectl label node node-name key:value
 
@@ -38,5 +40,31 @@ And pod
       nodeSelector:
         Size: Large
 
+### ------------ nodeAffinity  -----------------------------
 
-    
+nodeAffinity types:
+Avaiable
+1. requiredDuringSchedulingIgnoredDuringExecution
+2. preferredDuringSchedulingIgnoredDuringExecution
+
+Planned:
+1. requiredDuringSchedulingRequiredDuringExecution
+2. preferredDuringSchedulingIgnoredRequiredExecution
+
+Operators -> In, NotIn, Exists
+
+    apiVersion: v1
+    kind: Pod
+    metadata:
+    name: node-affinity-example
+    spec:
+    affinity:
+        nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+            - key: kubernetes.io/e2e-az-name
+                operator: In
+                values:
+                - e2e-az1
+                - e2e-az2
