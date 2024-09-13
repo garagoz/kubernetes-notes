@@ -70,7 +70,8 @@ Operators -> In, NotIn, Exists
                 - e2e-az2
 
 ### ------------ pod cpu and memory setting  -----------------------------
- while creating pod we can set cpu and memory setting for the pod
+
+ while creating pod we can set cpu and memory setting for the pods
     apiVersion: v1
     kind: Pod
     metadata:
@@ -86,3 +87,9 @@ Operators -> In, NotIn, Exists
           limits:
             memory: "128Mi"       # The maximum amount of memory the container can use
             cpu: "500m"           # The maximum amount of CPU the container can use (500m = 0.5 CPU core)
+
+### ------------ DaemonSet  -----------------------------
+
+a DaemonSet is a type of workload controller that ensures that a copy of a specific Pod runs 
+on all or a subset of nodes within a cluster. It is primarily used for deploying background tasks 
+that need to run on every node, such as logging, monitoring, or networking agents.
