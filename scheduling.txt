@@ -68,3 +68,21 @@ Operators -> In, NotIn, Exists
                 values:
                 - e2e-az1
                 - e2e-az2
+
+### ------------ pod cpu and memory setting  -----------------------------
+ while creating pod we can set cpu and memory setting for the pod
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: resource-demo
+    spec:
+      containers:
+      - name: resource-container
+        image: nginx
+        resources:
+          requests:
+            memory: "64Mi"        # The minimum amount of memory the container is guaranteed
+            cpu: "250m"           # The minimum amount of CPU the container is guaranteed (250m = 0.25 CPU core)
+          limits:
+            memory: "128Mi"       # The maximum amount of memory the container can use
+            cpu: "500m"           # The maximum amount of CPU the container can use (500m = 0.5 CPU core)
