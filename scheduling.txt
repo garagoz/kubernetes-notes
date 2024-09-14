@@ -1,4 +1,4 @@
-# -------- SCHEDULING ---------
+# ----------------------------------- SCHEDULING ------------------------------------
 
 ### ------------ Taint and tolerations -----------------------------
 
@@ -69,7 +69,7 @@ Operators -> In, NotIn, Exists
                 - e2e-az1
                 - e2e-az2
 
-### ------------ pod cpu and memory setting  -----------------------------
+### ------------ Pod CPU and MEMORY setting  -----------------------------
 
  while creating pod we can set cpu and memory setting for the pods
     apiVersion: v1
@@ -97,4 +97,16 @@ that need to run on every node, such as logging, monitoring, or networking agent
 Network plugins: These pods provide network connectivity across the cluster, often using tools like Calico, Flannel, or WeaveNet.
 Storage drivers: These pods manage storage volumes and file systems, ensuring consistent access to data across the cluster.
 Log aggregators: These pods collect and centralize logs from various applications and systems, facilitating troubleshooting and analysis.
-Monitoring agents: These pods monitor the health and performance of the cluster, providing valuable insights into resource utilization and potential issues.
+Monitoring agents: These pods monitor the health and performance of the cluster, providing valuable insights into resource utilization 
+                  and potential issues.
+
+
+### ------------ Static Pods  -----------------------------
+
+A static pod is a special kind of pod in Kubernetes that is directly managed by the kubelet (the node agent) on individual nodes, 
+rather than by the Kubernetes API server. Static pods are defined by files stored on a specific node (rather than being created 
+via the Kubernetes control plane), and the kubelet monitors these pod definitions and automatically starts the pods when it sees the manifest
+
+Static pods are not part of a ReplicaSet, Deployment, or any other Kubernetes controller. Instead, they are created 
+and maintained by the kubelet on the node itself. They do not have any associated Kubernetes API objects 
+(like pods in a Deployment), and they are not visible via kubectl get pods unless you look at the node itself.
