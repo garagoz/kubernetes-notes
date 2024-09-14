@@ -9,3 +9,9 @@ kubectl set image deployment/nginx-deployment nginx=nginx:1.16.1
 
 To see the rollout history:
 kubectl rollout history deployment/nginx-deployment
+
+If something goes wrong with the new version, you can roll back to the previous version:
+kubectl rollout undo deployment/nginx-deployment
+
+You can also roll back to a specific revision:
+kubectl rollout undo deployment/nginx-deployment --to-revision=2
