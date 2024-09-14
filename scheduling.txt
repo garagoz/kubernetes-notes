@@ -110,3 +110,8 @@ via the Kubernetes control plane), and the kubelet monitors these pod definition
 Static pods are not part of a ReplicaSet, Deployment, or any other Kubernetes controller. Instead, they are created 
 and maintained by the kubelet on the node itself. They do not have any associated Kubernetes API objects 
 (like pods in a Deployment), and they are not visible via kubectl get pods unless you look at the node itself.
+
+Static pods are created using pod manifest files stored in a specific directory on the node. For example, 
+if you store a pod manifest in /etc/kubernetes/manifests, the kubelet will automatically detect and create the static pod.
+
+Static pods gets its name like this -> <PodName>-<NodeName>
