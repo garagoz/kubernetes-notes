@@ -1,0 +1,11 @@
+
+# ----------------------------------- DEPLOYMENTS ------------------------------------
+
+This command will monitor the rollout progress and display the status of the deployment.
+kubectl rollout status deployment/my-app
+
+updating image at deployement
+kubectl set image deployment/nginx-deployment nginx=nginx:1.16.1
+
+To see the rollout history:
+kubectl rollout history deployment/nginx-deployment
