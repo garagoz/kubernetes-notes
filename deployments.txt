@@ -83,6 +83,8 @@ ConfigMaps at definition files
     echo -n 'myUser' | base64
     echo -n 'myPassword' | base64
 
+    ps: to decode it -> echo "" | base64 --decode
+
     Step 2: Create a Secret YAML Definition
     apiVersion: v1
     kind: Secret
