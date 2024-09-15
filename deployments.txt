@@ -17,6 +17,7 @@ You can also roll back to a specific revision:
 kubectl rollout undo deployment/nginx-deployment --to-revision=2
 
 ### ----------------- Commands and arguments -----------------------------
+
 Commands and arguments can be specified in a Pod or Containe. These are often used to override the default 
 command and arguments set in the Docker image.
 
@@ -24,8 +25,13 @@ Here’s a breakdown:
 command: This overrides the Docker image’s ENTRYPOINT.
 args: These are the arguments passed to the command and override the Docker image’s CMD.
 
+
   containers:
-  - name: my-container
-    image: busybox
-    command: ["sh", "-c"]      # This overrides the ENTRYPOINT
+  - name: ubuntu
+    image: ubuntu
+    command: ["sleep", "500"]      # This overrides the ENTRYPOINT
     args: ["echo Hello, Kubernetes! && sleep 3600"]  # This overrides the CMD
+
+### ----------------- ENV variables and ConfigMaps -----------------------------
+
+kubectl create configmap my-config --from-literal=APP_COLOR=blue
