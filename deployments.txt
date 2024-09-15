@@ -34,4 +34,19 @@ args: These are the arguments passed to the command and override the Docker imag
 
 ### ----------------- ENV variables and ConfigMaps -----------------------------
 
+Using Environment value at Pod 
+env:
+  - name: APP_COLOR
+    value: blue
+
+Creating configmap from imperative way
 kubectl create configmap my-config --from-literal=APP_COLOR=blue
+
+Creating configmap from declarative way
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+    name: app-config
+    data:
+    APP_COLOR: blue
+    APP_MODE: prod
