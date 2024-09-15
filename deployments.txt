@@ -50,3 +50,45 @@ Creating configmap from declarative way
     data:
     APP_COLOR: blue
     APP_MODE: prod
+
+ConfigMaps at definition files
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: my-pod
+    spec:
+      containers:
+        - name: my-container
+          image: nginx
+          env:
+            - name: APP_NAME          # Set environment variable from ConfigMap
+              valueFrom:
+                configMapKeyRef:
+                  name: my-config     # Reference to ConfigMap
+                  key: app_name
+
+    Second way:
+    envFrom:
+      - configMapRef:
+          name: app-config
+
+
+### ----------------- SECRETS -----------------------------
+
+1. Imperative Method: kubectl create secret generic my-secret --from-literal=username=myUser --from-literal=password=myPassword
+
+2. Declarative Method
+
+    Step 1: Base64 Encode the Data
+    echo -n 'myUser' | base64
+    echo -n 'myPassword' | base64
+
+    Step 2: Create a Secret YAML Definition
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: my-secret
+    type: Opaque
+    data:
+      username: bXlVc2Vy     # base64 encoded value for 'myUser'
+      password: bXlQYXNzd29yZA==  # base64 encoded value for 'myPassword'
