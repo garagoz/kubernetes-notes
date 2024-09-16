@@ -1,0 +1,13 @@
+# ----------------------------------- CLUSTER MAINTENANCE ------------------------------------
+
+### ----------------- Drain and Cordon a node -----------------------------
+1. kubectl cordon <node-name>
+When you cordon a node, you mark it as unschedulable, meaning new pods will not be scheduled on that node. 
+However, it does not affect the running pods. The node remains operational, and any pods already running on it 
+will continue running until they are terminated or moved by another operation
+
+
+2. kubectl drain <node-name>
+When you drain a node, it goes a step further than cordon. Draining involves:
+Cordoning the node to make it unschedulable.
+Evicting all running pods from the node so they can be rescheduled on other available nodes.
