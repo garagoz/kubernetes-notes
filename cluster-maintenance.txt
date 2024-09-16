@@ -11,3 +11,7 @@ will continue running until they are terminated or moved by another operation
 When you drain a node, it goes a step further than cordon. Draining involves:
 Cordoning the node to make it unschedulable.
 Evicting all running pods from the node so they can be rescheduled on other available nodes.
+
+### ----------------- Upgrading cluster -----------------------------
+Tools to Upgrade: kubeadm, kubelet, kubectl, Control plane components, Container runtime, network and storage plugins
+                  etcd, Heml, 
