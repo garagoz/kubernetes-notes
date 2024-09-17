@@ -19,8 +19,9 @@ Tools to Upgrade: kubeadm, kubelet, kubectl, Control plane components, Container
         
 ### ----------------- ETCD Backup and Restore-----------------------------
 
-kubectl get all --all-namespaces > backup.yaml
+Method 1: kubectl get all --all-namespaces > backup.yaml
 
+Method 2:
 In order to backup etcd we need endpoint and certifcation files
     1. --endpoints=https://127.0.0.1:2379 -> cat /etc/kubernetes/manifests/etcd.yaml | grep listen
     2. --cert,--cacert,--key  -> cat /etc/kubernetes/manifests/etcd.yaml | grep file
@@ -45,6 +46,8 @@ To restore etcd
         --cert=/etc/kubernetes/pki/etcd/server.crt \
         --key=/etc/kubernetes/pki/etcd/server.key \
         snapshot restore etcd-backup.db
+
+    3. 
      
 After restoring etcd snapshot change these paths at file /etc/kubernetes/manifests/etcd.yaml
     Search this /var/lib/etcd and replace it with new data directory path which /var/lib/etcd-backup
