@@ -14,4 +14,18 @@ Evicting all running pods from the node so they can be rescheduled on other avai
 
 ### ----------------- Upgrading cluster -----------------------------
 Tools to Upgrade: kubeadm, kubelet, kubectl, Control plane components, Container runtime, network and storage plugins
-                  etcd, Heml, 
+                  etcd, Heml
+
+        
+### ----------------- ETCD Backup and Restore-----------------------------
+In order to backup etcd we need endpoint and certifcation files
+    1. --endpoints=https://127.0.0.1:2379 -> cat /etc/kubernetes/manifests/etcd.yaml | grep listen
+    2. --cert,--cacert,--key  -> cat /etc/kubernetes/manifests/etcd.yaml | grep file
+
+To take backup of etcd run this commands
+    ETCDCTL_API=3 etcdctl --endpoints=https://127.0.0.1:2379 \
+    --cacert=/etc/kubernetes/pki/etcd/ca.crt \
+    --cert=/etc/kubernetes/pki/etcd/server.crt \
+    --key=/etc/kubernetes/pki/etcd/server.key \
+    snapshot save <backup-file-location>
+     
