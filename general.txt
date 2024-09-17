@@ -1,42 +1,10 @@
 # Other kubernetes commands
 
-### ------------ Taint and tolerations -----------------------------
-tain a node so that node can only accepted tolerated pod
-tolerate a pod so that pod can run on tainted node
+To view how many cluster exist
+kubectl config get-clusters
 
-kubectl taint node node-name key:value:tain-effect (NoSchedule, PreferNoSchedule, NoExecute)
-example -> kubectl taint node node1 app:blue:NoSchedule
-
-### adding tolerations to pod
-    apiVersion: v1
-    kind: Pod
-    metadata:
-      name: mypod
-    spec:
-      containers:
-      - name: nginx
-        image: nginx
-      tolerations:
-        - key: app
-          operator: Equal
-          value: blue
-          effect: NoSchedule
-
-### ------------ Node selector -----------------------------
-why use nodeSelector, sometimes we want assign pod to specific labeled pod
-kubectl label node node-name key:value
-
-And pod     
-    apiVersion: v1
-    kind: Pod
-    metadata:
-      name: mypod
-    spec:
-      containers:
-      - name: nginx
-        image: nginx
-      nodeSelector:
-        Size: Large
+Switch to cluster
+kubectl config use-context cluster-name
 
 
     
