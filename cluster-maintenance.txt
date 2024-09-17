@@ -22,10 +22,22 @@ In order to backup etcd we need endpoint and certifcation files
     1. --endpoints=https://127.0.0.1:2379 -> cat /etc/kubernetes/manifests/etcd.yaml | grep listen
     2. --cert,--cacert,--key  -> cat /etc/kubernetes/manifests/etcd.yaml | grep file
 
+    Another way obtain these information run rhis -> kubectl describe -n kube-system pod etcd-controlplane
+
 To take backup of etcd run this commands
     ETCDCTL_API=3 etcdctl --endpoints=https://127.0.0.1:2379 \
     --cacert=/etc/kubernetes/pki/etcd/ca.crt \
     --cert=/etc/kubernetes/pki/etcd/server.crt \
     --key=/etc/kubernetes/pki/etcd/server.key \
     snapshot save <backup-file-location>
+
+To restore etcd from backup snapshot run this commands
+    ETCDCTL_API=3 etcdctl --data-dir="/var/lib/etcd-backup" \
+    --endpoints=https://127.0.0.1:2379 \
+    --cacert=/etc/kubernetes/pki/etcd/ca.crt \
+    --cert=/etc/kubernetes/pki/etcd/server.crt \
+    --key=/etc/kubernetes/pki/etcd/server.key \
+    snapshot restore etcd-backup.db
      
+After restoring etcd snapshot change these paths at file /etc/kubernetes/manifests/etcd.yaml
+    Search this /var/lib/etcd and replace it with new data directory path which /var/lib/etcd-backup
