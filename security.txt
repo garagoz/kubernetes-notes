@@ -1,0 +1,9 @@
+# ----------------------------------- KUBERNETES SECURITY ------------------------------------
+
+### ------------ Kubeconfig file -----------------------------
+
+To view the current context:
+kubectl config current-context
+
+To switch contexts:
+kubectl config use-context example-context
