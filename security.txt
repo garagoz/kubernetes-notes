@@ -40,3 +40,6 @@ kubectl config use-context example-context
       kind: Role
       name: developer
       apiGroup: rbac.authorization.k8s.io
+
+      Then: kubectl create -f developer-role.yaml
+            kubectl create -f devuser-developer-binding.yaml
