@@ -26,8 +26,8 @@ kubectl config use-context example-context
        resources: ["ConfigMap"]
        verbs: ["create"]
 
-    #---------------------------------------------------------
-    Bind User to Role
+###---------------------------------------------------------
+  Bind User to Role
     apiVersion: rbac.authorization.k8s.io/v1
     kind: RoleBinding
     metadata:
