@@ -1,5 +1,8 @@
 # ----------------------------------- KUBERNETES SECURITY ------------------------------------
 
+To see certificate details use openssl commands
+openssl x509 -in <certificate_file> -text -noout
+
 ### ------------ Kubeconfig file -----------------------------
 
 To view the current context:
@@ -7,3 +10,33 @@ kubectl config current-context
 
 To switch contexts:
 kubectl config use-context example-context
+
+### ------------ RBAC -----------------------------
+ Creating developer role
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: Role
+    metadata:
+      name: developer
+    rules:
+     - apiGroups: [""]
+       resources: ["pods"]
+       verbs: ["list", "get", "create", "update", "delete"]
+
+     - apiGroups: [""]
+       resources: ["ConfigMap"]
+       verbs: ["create"]
+
+    #---------------------------------------------------------
+    Bind User to Role
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: RoleBinding
+    metadata:
+      name: devuser-developer-binding
+    subjects:
+    - kind: User
+      name: dev-user
+      apiGroup: rbac.authorization.k8s.io
+    roleRef:
+      kind: Role
+      name: developer
+      apiGroup: rbac.authorization.k8s.io
