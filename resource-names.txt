@@ -1,0 +1,23 @@
+1. Pod - Represents a single instance of a running process in your cluster.
+2. Service - An abstraction which defines a logical set of Pods and a policy by which to access them.
+3. Deployment - Provides declarative updates for Pods and ReplicaSets.
+4. ReplicaSet - Ensures that a specified number of pod replicas are running at any given time.
+5. StatefulSet - Manages the deployment and scaling of a set of Pods, and provides guarantees about the ordering and uniqueness of these Pods.
+6. DaemonSet - Ensures that all (or some) Nodes run a copy of a Pod.
+7. Job - Creates one or more Pods and ensures that a specified number of them successfully terminate.
+8. CronJob - Manages time-based jobs, similar to cron in Unix/Linux.
+9. ConfigMap - Provides a way to inject configuration data into the Pods.
+10. Secret - Stores sensitive information, such as passwords, OAuth tokens, and ssh keys.
+11. Ingress - Manages external access to the services in a cluster, typically HTTP.
+12. PersistentVolume (PV) - A piece of storage in the cluster that has been provisioned by an administrator.
+13. PersistentVolumeClaim (PVC) - A request for storage by a user.
+14. Namespace - Provides a mechanism to isolate groups of resources within a single cluster.
+15. Node - Represents a single node in the Kubernetes cluster.
+16. ServiceAccount - Provides an identity for processes that run in a Pod.
+17. Endpoint - Represent the endpoints of a Service.
+18. NetworkPolicy - Defines how Pods communicate with each other and with other network endpoints.
+19. ResourceQuota - Provides constraints that limit resource consumption per namespace.
+20. LimitRange - Provides constraints on the resource requests and limits in a namespace.
+21. Volume - Stores data, which can persist across container restarts.
+22. HorizontalPodAutoscaler - Automatically scales the number of pods in a replication controller, deployment, replica set, or stateful set based on observed CPU utilization or other select metrics.
+23. PodDisruptionBudget - Specifies the number of Pods that can be taken offline during disruptions.
