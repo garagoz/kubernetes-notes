@@ -11,8 +11,8 @@ ssh node-name
 
 kubectl describe pod kubeapiserver-pod -n kube-system
 
-To see certificate details use openssl commands
-openssl x509 -in <certificate_file> -text -noout
+List all api resources
+kubetctl api-resources
 
 
     
