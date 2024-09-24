@@ -14,5 +14,9 @@ kubectl describe pod kubeapiserver-pod -n kube-system
 List all api resources
 kubetctl api-resources
 
+To see all api versions
+kubectl api-versions
 
+To see more detail about kubernetes object
+ kubectl explain deployments.spec --api-version=apps/v1 
     
