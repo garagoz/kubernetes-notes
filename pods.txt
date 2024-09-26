@@ -24,7 +24,7 @@
     metadata:
       name: mypod
     spec:
-    containers:
+      containers:
         - name: nginx
           image: nginx
           ports:
@@ -37,7 +37,7 @@
     metadata:
       name: mypod
     spec:
-    containers:
+      containers:
       - name: nginx
         image: nginx
         ports:
@@ -56,7 +56,7 @@
         developer: Arslan Torayev
         build: v2
     spec:
-    containers:
+      containers:
       - name: nginx
         image: nginx
         ports:

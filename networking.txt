@@ -5,3 +5,12 @@ ip netns add namespace-name
 
 For listing namespaces
 ip netns
+
+To see network interfaces
+ip link
+
+To see network interfaces only namespace
+ip netns exec namespace-name ip link
+
+Another way to see network interfaces
+ip -n namespace-name link
