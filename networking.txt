@@ -2,3 +2,6 @@
 # ----------------------------------- KUBERNETES NETWORK ------------------------------------
 Creating network namespace at linux host
 ip netns add namespace-name
+
+For listing namespaces
+ip netns
