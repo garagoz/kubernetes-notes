@@ -17,3 +17,12 @@ ip -n namespace-name link
 
 To add virtual ethernet interface to host
 ip link add veth-red type veth peer name veth-blue
+
+Setting created virtual ethernet to namespace
+ip link set veth-red netns red
+
+Assign ip address to virtual ethernet
+ip -n red addr add 192.168.15.1 dev veth-red
+
+Set up command to virtual ethernet
+ip -n red link set veth-red up
