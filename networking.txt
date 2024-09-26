@@ -14,3 +14,6 @@ ip netns exec namespace-name ip link
 
 Another way to see network interfaces
 ip -n namespace-name link
+
+To add virtual ethernet interface to host
+ip link add veth-red type veth peer name veth-blue
