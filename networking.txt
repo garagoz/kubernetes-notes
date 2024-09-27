@@ -34,3 +34,11 @@ ip link add name-interface type bridge
 
 To see all bridge type network
 ip addr show type bridge
+
+# -------------------------------------------
+
+CNI conf file path
+/etc/cni/net.d/
+
+Installed CNI binary files
+/opt/cni/bin
