@@ -1,23 +1,47 @@
 # ----------------------------
 
-kubectl get cronjob
+Job: Runs a one-time task and ensures its completion.
 kubectl get jobs
 
-    apiVersion: batch/v1
-    kind: CronJob
-    metadata:
-    name: hello-world-cronjob
+CronJob: A scheduled job that runs at regular intervals.
+kubectl get cronjobs
+
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hello-world-cronjob
+spec:
+  schedule: "*/5 * * * *"  # Runs every 5 minutes
+  jobTemplate:
     spec:
-    schedule: "*/5 * * * *"  # Runs every 5 minutes
-    jobTemplate:
+      template:
         spec:
-        template:
-            spec:
-            containers:
-            - name: hello
-                image: busybox
-                args:
-                - /bin/sh
-                - -c
-                - echo "Hello, World! The time is $(date)"
-            restartPolicy: OnFailure
+          containers:
+          - name: hello
+            image: busybox
+            args:
+            - /bin/sh
+            - -c
+            - echo "Hello, World! The time is $(date)"
+          restartPolicy: OnFailure
+
+
+# --------------------
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hello-world-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: hello
+        image: busybox
+        args:
+        - /bin/sh
+        - -c
+        - echo "Hello, Kubernetes!"
+      restartPolicy: Never
+  backoffLimit: 4
+
