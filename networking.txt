@@ -42,3 +42,9 @@ CNI conf file path
 
 Installed CNI binary files
 /opt/cni/bin
+
+# --------------------------------------------
+
+Kubernetes Ingress is a networking resource that acts as a reverse proxy, routing external traffic 
+to specific services within a Kubernetes cluster. It provides a single entry point for external 
+clients to access multiple services, simplifying traffic management and load balancing.
