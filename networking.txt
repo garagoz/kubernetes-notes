@@ -48,3 +48,22 @@ Installed CNI binary files
 Kubernetes Ingress is a networking resource that acts as a reverse proxy, routing external traffic 
 to specific services within a Kubernetes cluster. It provides a single entry point for external 
 clients to access multiple services, simplifying traffic management and load balancing.
+
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+    name: hello-world-ingress
+    annotations:
+        nginx.ingress.kubernetes.io/rewrite-target: /
+    spec:
+    rules:
+    - host: hello-world.example.com  # Replace with your domain
+        http:
+        paths:
+        - path: /
+            pathType: Prefix
+            backend:
+            service:
+                name: hello-world-service
+                port:
+                number: 80
