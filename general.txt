@@ -19,4 +19,7 @@ kubectl api-versions
 
 To see more detail about kubernetes object
  kubectl explain deployments.spec --api-version=apps/v1 
+
+Copy file to pod's container
+cp /home/thor/index.php nginx-phpfpm:/var/www/html/ --container=nginx-container
     

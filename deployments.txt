@@ -46,10 +46,10 @@ Creating configmap from declarative way
     apiVersion: v1
     kind: ConfigMap
     metadata:
-    name: app-config
+      name: app-config
     data:
-    APP_COLOR: blue
-    APP_MODE: prod
+      APP_COLOR: blue
+      APP_MODE: prod
 
 ConfigMaps at definition files
     apiVersion: v1
