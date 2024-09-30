@@ -34,3 +34,23 @@ spec:
             configMapKeyRef:
               name: my-configmap
               key: key1
+
+# --------------------------------------
+Configmap usage as volume mount
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fortune-configmap-volume
+spec:
+  containers:
+  - image: nginx:alpine
+    name: web-server
+    volumeMounts:
+    - name: config
+      mountPath: /etc/nginx/conf.d
+      readOnly: true
+  volumes:
+  - name: config
+    configMap:
+      name: fortune-config
