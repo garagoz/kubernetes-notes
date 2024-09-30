@@ -12,3 +12,25 @@ data:
     player.maximum-lives=5
 binaryData:
   key3: L3Jvb3QvMTAw 
+
+# ------------------------------------------
+imperative way
+kubectl create configmap my-configmap --from-literal=key1=value1
+
+# ----------------------------------
+Configmap usage as environment variable
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+spec:
+  containers:
+    - name: my-container
+      image: my-image
+      env:
+        - name: KEY1
+          valueFrom:
+            configMapKeyRef:
+              name: my-configmap
+              key: key1
