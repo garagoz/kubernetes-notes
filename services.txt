@@ -28,3 +28,7 @@
           port: 80
         selector:
           tier: frontend
+
+
+
+kubectl expose pod <pod-name> --port=3306 --target-port=3306 --name=mysql-service
