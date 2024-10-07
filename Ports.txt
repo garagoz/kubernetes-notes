@@ -1,0 +1,3 @@
+Ports at Kubernetes world
+
+2379 - Etcd
