@@ -1,3 +1,5 @@
+
+kubectl get nodes -o=CUSTOM-COLUMNS=<COLUMN_NAME>:<JSON_PATH>
 kubectl get nodes -o=custom-columns=NODE:.metadata.name, CPU:.status.capacity.cpu
 
 For sorting

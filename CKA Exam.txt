@@ -1,0 +1,4 @@
+CKA Exam key notes which I learned from internet
+
+1. Familiar using only kubernetes.io documentaion web page
+2. Bookmark some kubernetes doc pages to reach faster which is useful 
