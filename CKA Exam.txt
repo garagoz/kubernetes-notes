@@ -6,3 +6,5 @@ CKA Exam key notes which I learned from internet
 3. Pay attention to your surrounding is clear, remove these is they exist on your desktop watch, frame, speaker.
 4. Use this to create YAML files and set it as alias --dry-run=client -o yaml
 5. While creating YAML file, give meaningful name to it like this q01-nginx-pod.yaml. It helps you reuse it and what yaml is it from its name.
+6. Set Kube context every time you change question which shown each question
+7. Flag questions you don’t know (and move on)
