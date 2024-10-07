@@ -1,0 +1,5 @@
+kubectl get nodes -o=custom-columns=NODE:.metadata.name, CPU:.status.capacity.cpu
+
+For sorting
+kubectl get nodes --sort-by=.metadata.name
+kubectl get nodes --sort-by=.status.capacity.cpu
