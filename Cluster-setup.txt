@@ -1,0 +1,12 @@
+Kubernetes cluster can be installed in a two way
+
+------ with kubeadm tool -------
+1. With kubeadm tool, in this way, each compenent runs as pod under kube-system namespace
+   cat /etc/kubernetes/manifests/component-name
+2. kubeadm tool doesnt install kubelet, we install it ourself
+
+
+
+------ From scratch ---------
+1. With scratch, you downlaod each component and run it as systemd service
+  ps aux | grep component-name
