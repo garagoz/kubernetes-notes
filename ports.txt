@@ -1,0 +1,4 @@
+Ports at Kubernetes world
+
+2379 - Etcd
+6443 - Kubernetes API server

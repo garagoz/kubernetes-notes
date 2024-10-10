@@ -32,10 +32,6 @@ sudo journalctl -u kubelet
 View certificate if all values valid
 openssl x509 -in /var/lib/kubelet/worker-1.crt -text 
 
-Kubernetes cluster can be installed in a two way
-1. With kubeadm tool, in this way, each compenent runs as pod under kube-system namespace
-   cat /etc/kubernetes/manifests/component-name
 
-2. With scratch, you downlaod each component and run it as service
-  ps aux | grep component-name
+
     
