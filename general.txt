@@ -33,5 +33,7 @@ View certificate if all values valid
 openssl x509 -in /var/lib/kubelet/worker-1.crt -text 
 
 
+If one pod doesnt answer within 5 minutes, kubernetes knows that pod is dead
+
 
     
