@@ -35,5 +35,8 @@ openssl x509 -in /var/lib/kubelet/worker-1.crt -text
 
 If one pod doesnt answer within 5 minutes, kubernetes knows that pod is dead
 
+export dro='--dry-run=client -o yaml'
+export now='--grace-period=0 --force'
+
 
     
