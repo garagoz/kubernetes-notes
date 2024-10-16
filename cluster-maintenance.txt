@@ -1,5 +1,7 @@
 # ----------------------------------- CLUSTER MAINTENANCE ------------------------------------
 
+kubeadm upgrade plan
+
 ### ----------------- Drain and Cordon a node -----------------------------
 1. kubectl cordon <node-name>
 When you cordon a node, you mark it as unschedulable, meaning new pods will not be scheduled on that node. 
