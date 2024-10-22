@@ -1,0 +1,42 @@
+
+User creation step by step open this link
+https://medium.com/@muppedaanvesh/a-hand-on-guide-to-kubernetes-rbac-with-a-user-creation-%EF%B8%8F-1ad9aa3cafb1
+
+1. generate an RSA private key
+ openssl genrsa -out anvesh.pem  
+
+2. Create a Certificate Signing Request (CSR)
+ openssl req -new -key anvesh.pem -out anvesh.csr -subj "/CN=anvesh"
+
+3. Create a Certificate Signing Request (CSR)
+cat anvesh.csr | base64 | tr -d "\n"
+
+cat <<EOF | kubectl apply -f -
+apiVersion: certificates.k8s.io/v1
+kind: CertificateSigningRequest
+metadata:
+  name: anvesh
+spec:
+  request: <base64_encoded_csr>
+  signerName: kubernetes.io/kube-apiserver-client
+  expirationSeconds: 86400  # one day
+  usages:
+  - digital signature
+  - key encipherment
+  - client auth
+EOF
+
+4. Sign the Certificate Using the Cluster Certificate Authority
+kubectl certificate approve anvesh
+
+5. Create a Configuration Specific to the User
+kubectl get csr/anvesh -o jsonpath="{.status.certificate}" | base64 -d > anvesh.crt
+
+6. Create new user config file
+kubectl --kubeconfig ~/.kube/config-anvesh config set-cluster preprod --insecure-skip-tls-verify=true --server=https://KUBERNETES-API-ADDRESS
+
+7. Set user credentials
+kubectl --kubeconfig ~/.kube/config-anvesh config set-credentials anvesh --client-certificate=anvesh-user.crt --client-key=anvesh.pem --embed-certs=true
+
+8. Set context information
+kubectl --kubeconfig ~/.kube/config-anvesh config set-context default --cluster=preprod --user=anvesh
