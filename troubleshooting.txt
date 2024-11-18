@@ -1,0 +1,8 @@
+k logs
+k logs -p (see previous instance )
+k describe
+crictl ps
+k events
+systemctl status kubelet
+journalctl -u kubelet | grep -i error
+journalctl | grep -i kube-api
