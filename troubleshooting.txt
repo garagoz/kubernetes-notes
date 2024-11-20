@@ -6,3 +6,4 @@ k events
 systemctl status kubelet
 journalctl -u kubelet | grep -i error
 journalctl | grep -i kube-api
+kubectl get event --field-selector involvedObject.name=<pod-name>
