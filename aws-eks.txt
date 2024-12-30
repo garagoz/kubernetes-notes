@@ -8,4 +8,12 @@ Creating aws eks cluster
 6. Select EKS API and configmap
 7. Once the cluster creation completed, go CloudShell
 8. aws eks update-kubeconfig --region us-east-1 --name demo-eks
-9.
+9. Verify cluster is working -> kubectl get all -A
+
+# Adding a node to cluster
+10. Create key pair
+11. Go to AWS CloudFormation and click create stack
+12. Choose existing template and provide AWS S3 URL 
+    https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2022-12-23/amazon-eks-nodegroup.yaml
+13. Provide stack name: eks-cluster-stack, cluster-name: demo-eks, nodegroupname: eks-demo-node
+14. Finally click submit
