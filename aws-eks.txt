@@ -4,3 +4,8 @@ Creating aws eks cluster
 2. create IAM role role name: eksClusterRole
 3. Go EKS and click create cluster button (with Custom configuration)
 4. Provide cluster name and cluster IAM role
+5. Switch off EKS Auto Mode
+6. Select EKS API and configmap
+7. Once the cluster creation completed, go CloudShell
+8. aws eks update-kubeconfig --region us-east-1 --name demo-eks
+9.
