@@ -1,0 +1,22 @@
+## -- Kubernetes Job template -----
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: batch-job
+spec:
+  template:
+    metadata:
+      name: my-job-pod
+    spec:
+      containers:
+        - name: greet-user
+          image: busybox
+          command: ["echo", "Hello Kubernetes!"]
+      restartPolicy: Never
+
+
+## Job usefull parameters
+completions: how success completion you need
+parallelism: how many pod should start at the same time
+activeDeadlineSeconds: pods active life time
+backoffLimit: container failure count to be job considered as failed
