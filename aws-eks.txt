@@ -16,4 +16,5 @@ Creating aws eks cluster
 12. Choose existing template and provide AWS S3 URL 
     https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2022-12-23/amazon-eks-nodegroup.yaml
 13. Provide stack name: eks-cluster-stack, cluster-name: demo-eks, nodegroupname: eks-demo-node
+    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/aws-auth-cm.yaml
 14. Finally click submit
