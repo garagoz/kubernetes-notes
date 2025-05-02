@@ -58,6 +58,7 @@ metadata:
     # this annotation removes the need for a trailing slash when calling urls
     # but it is not necessary for solving this scenario
     nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: nginx # k get ingressclass
   rules:

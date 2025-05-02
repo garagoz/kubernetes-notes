@@ -41,5 +41,6 @@ export now='--grace-period=0 --force'
 Installed CNI plugin default location
 /etc/cni/net.d/
 
-
+Filter pods with its labels
+k get pods --selector app=backend
     
