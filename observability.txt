@@ -1,0 +1,56 @@
+Kubernetes supports three types of probes:
+
+1. httpGet – Check an HTTP endpoint.
+2. tcpSocket – Try to open a TCP connection.
+3. exec – Run a command inside the container.
+
+initialDelaySeconds	    How long to wait before first check (in seconds).
+periodSeconds	        How often to perform the check.
+timeoutSeconds	        Probe timeout. Default is 1s.
+successThreshold	    Minimum consecutive successes for probe to be considered successful.
+failureThreshold	    When to give up and mark container unhealthy or unready.
+
+--- httpGet ---
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: 8080
+  initialDelaySeconds: 5
+  periodSeconds: 10
+
+readinessProbe:
+  httpGet:
+    path: /ready
+    port: 8080
+  initialDelaySeconds: 5
+  periodSeconds: 5
+
+--- tcpSocket---
+livenessProbe:
+  tcpSocket:
+    port: 3306
+  initialDelaySeconds: 10
+  periodSeconds: 10
+
+readinessProbe:
+  tcpSocket:
+    port: 3306
+  initialDelaySeconds: 5
+  periodSeconds: 5
+
+--exec---
+livenessProbe:
+  exec:
+    command:
+      - cat
+      - /tmp/healthy
+  initialDelaySeconds: 5
+  periodSeconds: 10
+
+readinessProbe:
+  exec:
+    command:
+      - cat
+      - /tmp/ready
+  initialDelaySeconds: 5
+  periodSeconds: 5

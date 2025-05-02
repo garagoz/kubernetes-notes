@@ -42,5 +42,5 @@ Installed CNI plugin default location
 /etc/cni/net.d/
 
 Filter pods with its labels
-k get pods --selector app=backend
+k get pods --selector app=backend,env=prod
     
