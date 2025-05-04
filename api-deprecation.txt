@@ -1,0 +1,2 @@
+kubectl convert -f old_yaml_file --output-version new_api
+Example: k convert -f nginx.yaml --output-version apps/v1
