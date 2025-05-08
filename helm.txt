@@ -17,6 +17,8 @@ helm rollback my-release 1
 helm upgrade my-release chart-name --version 18.3.6  # chart upgarde example
 helm template chart-name # outputs yaml files
 
+helm create new-release-name  # creates new raw chart
+
 --- Helm Versions----
 Helm 2 -> v1
 Helm 3 -> v2
