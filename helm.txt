@@ -7,13 +7,15 @@ sudo apt-get install helm
 
 
 --- Helm Commands ----
-helm install [release-name][chart-name]
+helm install [release-name] [chart-name]
 helm install my-release bitnami/wordpress
+helm install my-release chart-name --dry-run # to capture errors without deploying yaml file 
 helm uninstall my-release
 helm list
 helm history my-release
 helm rollback my-release 1
 helm upgrade my-release chart-name --version 18.3.6  # chart upgarde example
+helm template chart-name # outputs yaml files
 
 --- Helm Versions----
 Helm 2 -> v1
