@@ -4,3 +4,14 @@ sudo apt-get install apt-transport-https --yes
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
 sudo apt-get update
 sudo apt-get install helm
+
+
+--- Helm Commands ----
+helm install [release-name][chart-name]
+helm install my-release bitnami/wordpress
+helm uninstall my-release
+helm list
+helm history my-release
+
+Helm 2 -> v1
+Helm 3 -> v2
