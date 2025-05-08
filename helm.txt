@@ -12,6 +12,9 @@ helm install my-release bitnami/wordpress
 helm uninstall my-release
 helm list
 helm history my-release
+helm rollback my-release 1
+helm upgrade my-release chart-name --version 18.3.6  # chart upgarde example
 
+--- Helm Versions----
 Helm 2 -> v1
 Helm 3 -> v2
