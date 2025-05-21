@@ -1,1 +1,5 @@
-kustomize build k8s/
+# Standalone Installation 
+1. curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
+2. move kustomize binary file to /usr/local/bin
+
+kustomize build k8s | k create -f -
