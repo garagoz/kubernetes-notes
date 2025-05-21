@@ -2,4 +2,10 @@
 1. curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
 2. move kustomize binary file to /usr/local/bin
 
-kustomize build k8s | k create -f -
+# Deploy kustomized yaml files
+kustomize build k8s/ | k create -f -
+kubectl apply -k k8s/
+
+# Delete deployed resources
+kustomize build k8s/ | k delete -f -
+kubectl delete -k k8s/
