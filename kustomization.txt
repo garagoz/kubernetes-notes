@@ -9,3 +9,10 @@ kubectl apply -k k8s/
 # Delete deployed resources
 kustomize build k8s/ | k delete -f -
 kubectl delete -k k8s/
+
+# Transformers
+- commonLabel
+- namePrefix
+- nameSuffix
+- namePrefix
+- commonAnnotations
